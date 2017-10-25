@@ -3,6 +3,12 @@
 UserForms enables CMS users to create dynamic forms via a drag and drop interface
 and without getting involved in any PHP code.
 
+## Branch: unique-form-id-4.5
+
+Having multiple UserDefinedForms on one page has an issue in that every form has the same id HTML attribute value of UserForm_Form. This causes problems.
+
+This branch changes the form ID to 'UserForm_Form_' . $this->ID making it unique. This allows multiple user defined forms to be on the same page.
+
 [![Build Status](http://img.shields.io/travis/silverstripe/silverstripe-userforms.svg?style=flat-square)](https://travis-ci.org/silverstripe/silverstripe-userforms)
 [![Code Quality](http://img.shields.io/scrutinizer/g/silverstripe/silverstripe-userforms.svg?style=flat-square)](https://scrutinizer-ci.com/g/silverstripe/silverstripe-userforms)
 [![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/silverstripe/silverstripe-userforms.svg?style=flat-square)](https://scrutinizer-ci.com/g/silverstripe/silverstripe-userforms)

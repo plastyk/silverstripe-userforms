@@ -204,8 +204,8 @@ SQL;
                 'Created' => 'Created',
                 'LastEdited' => 'Last Edited'
             );
-            foreach(EditableFormField::get()->filter(array("ParentID" => $parentID)) as $eff) {
-                if($eff->ShowInSummary) {
+            foreach (EditableFormField::get()->filter(array("ParentID" => $parentID)) as $eff) {
+                if ($eff->ShowInSummary) {
                     $summaryarray[$eff->Name] = $eff->Title ?: $eff->Name;
                 }
             }
@@ -360,7 +360,6 @@ SQL;
 
 class UserDefinedForm_Controller extends Page_Controller
 {
-
     private static $finished_anchor = '#uff';
 
     private static $allowed_actions = array(
@@ -445,7 +444,8 @@ class UserDefinedForm_Controller extends Page_Controller
      */
     public function Form()
     {
-        $form = UserForm::create($this);
+        $form = UserForm::create($this, 'Form_' . $this->ID);
+        $form->setFormAction(Controller::join_links($this->Link(), 'Form'));
         $this->generateConditionalJavascript();
         return $form;
     }
